@@ -84,7 +84,7 @@ img {
     height: auto;
 }
 
-@media screen and (min-width: 412px){
+@media screen and (max-width: 412px){
     img {
         margin-top: 75px;
         width: 200px;
