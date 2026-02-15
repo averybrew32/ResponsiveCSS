@@ -3,17 +3,22 @@ html {
     background-color: #3a506b;
 }
 
-#header {
+.grid {
+    display: grid;
+    grid-template-areas: 
+        'header header'
+        'projects mainInfo';
+    grid-template-columns: 1fr 3fr;
+    height: 100vh;
+}
+
+.header {
+    grid-area: header;
     text-align: center;
     background-color: #1c2541;
     color: white;
-    position: fixed;
-    top: 0;
-    left: 0;
-    height: 20%;
-    width: 100%;
     font-size: clamp(12px, 1vw, 50px);
-    min-height: 150px;
+    padding: 60px;
 }
 
 button{
@@ -29,15 +34,11 @@ button:hover {
     cursor: pointer;
 }
 
-#projects {
+.projects {
+    grid-area: projects;
     text-align: center;
     background-color: #0b132b;
     color: white;
-    position: fixed;
-    bottom: 0;
-    right: 0;
-    width: 15%;
-    height: 80%;
     font-size: clamp(12px, 2vw, 24px);
 }
 
@@ -49,50 +50,50 @@ a:visited {
     color: lightpink;
 }
 
-#mainInfo {
-    margin-top: 200px;
-    margin-right: 15%;
+.mainInfo {
+    grid-area: mainInfo;
     font-size: clamp(10px, 2vw, 20px);
     line-height: 2.0;
+    padding: 10px;
 }
 
-#description {
+.description {
     text-align: center;
     text-decoration: overline;
     text-decoration-color: #0b132b
 }
 
-#pHeader {
-    width: 100%;
-    min-height: 50px;
-    text-align: center;
-    background-color:#1c2541;
-    position: fixed;
-    top: 0;
-    margin: 0;
-    padding: 10px;
-    font-size: clamp(16px, 3vw, 24px);
+.pGrid {
+    display: grid;
+    grid-template-areas:
+        'pHeader pHeader'
+        'pMain img';
+    grid-template-columns: 1fr 2fr;
+    grid-template-rows: auto 1fr;
+    height: 100vh;
 }
 
-#pMain {
+.pHeader {
+    text-align: center;
+    background-color:#1c2541;
+    font-size: clamp(16px, 3vw, 24px);
+    padding: 30px;
+    grid-area: pHeader;
+}
+
+.pMain {
     font-size: clamp(12px, 3vw, 24px);
+    grid-area: pMain;
 }
 
 img {
-    margin-top: 75px;
-    width: 800px;
+    grid-area: img;
+    width: 100%;
     height: auto;
+    max-width: 800px;
 }
 
-@media screen and (max-width: 412px){
-    img {
-        margin-top: 75px;
-        width: 200px;
-        height: auto;
-    }
-}
-
-#rLink {
+.rLink {
     position: fixed;
     bottom: 0;
     right: 0;
@@ -101,5 +102,22 @@ img {
     height: 30px;
     text-align: center;
     font-size: clamp(10px, 2vw, 20px);
+    padding: 15px;
+}
+
+@media (max-width: 412px){
+    .grid {
+        grid-template-areas:
+            "header header"
+            "mainInfo"
+            "projects";
+    }
+
+    .pGrid {
+        grid-template-areas:
+            "pHeader pHeader"
+            "img"
+            "pMain";
+    }
 }
 
