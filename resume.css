@@ -107,15 +107,17 @@ img {
 
 @media (max-width: 412px){
     .grid {
+        grid-template-columns: 1fr;
         grid-template-areas:
-            "header header"
+            "header"
             "mainInfo"
             "projects";
     }
 
     .pGrid {
+        grid-template-columns: 1fr;
         grid-template-areas:
-            "pHeader pHeader"
+            "pHeader"
             "img"
             "pMain";
     }
